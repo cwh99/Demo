@@ -1,0 +1,72 @@
+body #left #middle #right footer{
+    background-color: lightgray;
+}
+section{
+    margin-top: 50px;
+}
+
+header h1{
+    /*background-color: lightgray;*/
+    text-align: center;
+    margin: 0;
+    padding: 0;
+}
+
+
+#middle{
+
+    border-right:1px solid white;
+}
+#middle button{
+    width: 200px;
+    margin: 5px 65px 20px 65px;
+}
+
+#right .panel{
+    margin-top: 30px;
+}
+
+#text-list li{
+    list-style: none;
+    /*margin:20px 0 20px 50px;*/
+    /*border: 2px solid #b3d4fd;*/
+
+}
+#text-list li .listbor{
+    border: 1px solid red;
+}
+ul,li{
+    list-style: none;
+}
+#left ul{
+    margin: 50px 0 30px -30px;
+}
+.show1 .edit,.editing .disp
+{
+    display:none;
+}
+.show1 .disp,.editing .edit
+{
+    display:inline-block;
+}
+.li_c
+{
+    float:left;
+    padding:5px;
+    margin: 30px;
+    /*border: 1px solid red;*/
+    /*width: 400px;*/
+}
+.input
+{
+    clear:both;
+    padding-top:10px;
+    padding-left:3px;
+    width:457px
+}
+#item-template span{
+    display: inline-block;
+}
+.border{
+    border: 1px solid red;
+}

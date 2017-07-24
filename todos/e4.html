@@ -1,0 +1,208 @@
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>backbone.js Todos</title>
+    <link rel="stylesheet" href="../backbone/todos.css">
+    <script src="../backbone/jquery.js"></script>
+    <script src="../backbone/underscore.js"></script>
+    <script src="../backbone/backbone.js"></script>
+    <style>
+        body
+        {
+            font-size:12px
+        }
+        .inputbtn
+        {
+            border:solid 1px #ccc;
+            background-color:#eee;
+            line-height:18px;
+            font-size:12px
+        }
+        .inputtxt
+        {
+            border:solid 1px #ccc;
+            line-height:18px;
+            font-size:12px;
+            padding-left:3px
+        }
+        ul
+        {
+            list-style:none;
+            padding:0px;
+            margin:10px 0px 15px 0px;
+            text-align:center
+        }
+        .input
+        {
+            clear:both;
+            padding-top:10px;
+            padding-left:3px;
+            width:457px
+        }
+        .spanl
+        {
+            float:left
+        }
+        .spanr
+        {
+            float:right
+        }
+        .btn
+        {
+            padding-top:10px;
+            clear:both
+        }
+        #pStatus{
+            display:none;
+            border:1px #ccc solid;
+            width:158px;
+            background-color:#eee;
+            padding:6px 12px 6px 12px;
+            margin-left:2px
+        }
+        #stuManager
+        {
+            width:460px;
+        }
+        #ulMessage
+        {
+            width:460px
+        }
+        #ulMessage span
+        {
+            width:90px;
+            float:left;
+            text-align:left
+        }
+        .show .edit,.editing .disp
+        {
+            display:none;
+        }
+        .show .disp,.editing .edit
+        {
+            display:block;
+        }
+        .li_h
+        {
+            border-bottom:solid 1px #666;
+            float:left;
+            background-color:#eee;
+            padding:5px;
+            font-weight:bold
+        }
+        .li_c
+        {
+            border-bottom:dashed 1px #ccc;
+            float:left;
+            padding:5px
+        }
+        #StuID{
+            display: none;
+        }
+    </style>
+</head>
+<body>
+<div id="stuManager">
+    <ul id="ulMessage">
+        <li class='li_h'> <span>姓名</span>  </li>
+    </ul>
+    <script type="text/template" id="item-template">
+        <span class="show">
+                 <div class="disp"><%= Name %></div>
+                 <div class="edit">
+                       <input type="text" name="Name" id="Name" class="inputtxt" size="8" />
+                 </div>
+           </span>
+        <span><a href="#">删除</a></span>
+    </script>
+    <div class="input">
+            <span class="spanl">
+                姓名：<input type="text" name="Name" id="Name" class="inputtxt" size="15" />
+            </span>
+
+            <input id="btnAdd" type="button" value="增加" class="inputbtn" />
+        </p>
+        <p id="pStatus"></p>
+    </div>
+</div>
+</body>
+<script>
+    $(function () {
+        //构建学生对象模型
+        var Student = Backbone.Model.extend({
+
+        });
+        //构建基于学生模型的集合
+        var StudentList = Backbone.Collection.extend({
+            model: Student
+        });
+        //实例化一个集合对象
+        var Students = new StudentList();
+        //构建用于模板的视图
+        var StudentView = Backbone.View.extend({
+            tagName: 'li',
+            className: 'li_c',
+            template: _.template($('#item-template').html()),
+            events: {
+                "dblclick span": "editing",
+                "blur input,select": "blur",
+                "click span a": "dele"
+            },
+            editing: function (e) {
+                $(e.currentTarget).removeClass("show").addClass("editing").find('input,select').focus();
+            },
+            blur: function (e) {
+                var $curele = $(e.currentTarget);
+                var objData = {};
+                objData[$curele.attr('name')] = $curele.val();
+                this.model.set(objData);
+                $(e.currentTarget).parent().parent().removeClass("editing").addClass("show");
+            },
+            dele: function () {
+                this.model.destroy();
+            },
+            initialize: function () {
+                this.model.on('change', this.render, this);
+                this.model.on('destroy', this.remove, this);
+            },
+            render: function () {
+                $(this.el).html(this.template(this.model.toJSON()));
+                return this;
+            },
+            remove: function () {
+                $(this.el).remove();
+            },
+        });
+        //构建主页视图
+        var stuAppView = Backbone.View.extend({
+            el: $("#stuManager"),
+            events: {
+                "click #btnAdd": "newstu"
+            },
+            // 绑定collection的相关事件
+            initialize: function () {
+                Students.bind('add', this.addData, this);
+            },
+            newstu: function (e) {
+                var stu = new Student();
+                var objData = {};
+                $('#Name').each(function () {
+                    objData[$(this).attr('name')] = $(this).val();
+                });
+                if (stu.set(objData)) {
+                    Students.add(stu);
+                }
+            },
+            addData: function (stu) {
+                var stuView = new StudentView({ model: stu });
+                $("#ulMessage").append(stuView.render().el);
+                $('#Name').each(function () {
+                    $(this).val("");
+                });
+            }
+        });
+        //实例化一个主页视图对象
+        var stuAppView = new stuAppView();
+    });
+</script>
+</html>

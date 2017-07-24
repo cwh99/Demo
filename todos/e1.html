@@ -1,0 +1,59 @@
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>backbone.js Todos</title>
+    <link rel="stylesheet" href="../backbone/todos.css">
+</head>
+<body>
+<input type="text">
+<input type="button" value="报道" id="check">
+<ul id="world-list">
+
+</ul>
+<a href="#">more</a>
+
+<script src="../backbone/json2.js"></script>
+<script src="../backbone/jquery.js"></script>
+<script src="../backbone/underscore.js"></script>
+<script src="../backbone/backbone.js"></script>
+<script src="../backbone/backbone.localStorage.js"></script>
+<!--<script src="../todos/index.js"></script>-->
+
+<script>
+    (function ($) {
+        World = Backbone.Model.extend({
+            name: null
+        });
+
+        Worlds = Backbone.Collection.extend({
+            initialize: function (models,options) {
+                this.bind('add',options.view.addOneWorld);
+            }
+        });
+
+        AppView = Backbone.View.extend({
+            el: $('body'),
+            initialize: function () {
+                this.worlds = new Worlds(null,{view:this})
+            },
+            events: {
+                'click #check': 'addOneWorld'
+            },
+//            checkIn: function () {
+//                var world_name = prompt("hello?");
+//                if(world_name == '') world_name == 'unknown';
+//                var world = new World({name : world_name});
+//                this.worlds.add(world);
+//            },
+//
+            addOneWorld: function (model) {
+                $('#world-list').append('<li><input type="text" placeholder="请输入文字："/></li>')
+            }
+        });
+
+        var appview = new AppView;
+    })(jQuery);
+</script>
+
+</body>
+</html>

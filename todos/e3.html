@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <style>
+        p{margin:0;}
+        input{border:none;outline: none;margin:0;padding:0;}
+        img{width:300px;height:300px;}
+        #loop{margin-left:50px;background:#c80;width:60px;height:40px;font-size:14px;line-height:20px;text-align: center;}
+        #order{margin-left:50px;background:#c80;width:60px;height:40px;font-size:14px;line-height:20px;text-align:center;}
+        div{width:300px;height:300px;position:relative;}
+        span{position:absolute;left:0;top:0;width:300px;height:20px;font-size:14px;line-height:20px;background:#000;opacity:0.5;color:#fff;text-align: center;}
+        div p{position:absolute;left:0;bottom:0;width:300px;height:20px;font-size:14px;line-height:20px;text-align: center;color:#fff;background:#000;opacity:0.5;}
+        div input{position:absolute;width:60px;height:60px;top:100px;background:pink;}
+        #back{left:0;}
+        #next{right:0;}
+    </style>
+    <script type="text/javascript">
+        window.onload=function(){
+            //循环切换
+            var oNext=document.getElementById("next");
+//            var oBack=document.getElementById("back");
+            var oImg=document.getElementById("img");
+//            var oText=document.getElementById("text");
+//            var oSpan=document.getElementById("span");
+//            var oLoop=document.getElementById("loop");
+//            var Oorder=document.getElementById('order');
+//            var oText1=document.getElementById("text1");
+            var aImg=["../img/test1.jpg","../img/test2.gif","../img/test3.jpg","../img/test4.jpg"];
+//            var aText=["图片1","图片2","图片3","图片4"];
+
+            var num=0;
+            //点击下一张事件
+            function next(){
+                num=num+1; //每次加一
+                //进行判断，如果num大于最后一张时,图片返回第一张
+                //// 1 2 3 4
+                if(num>aImg.length-1){
+
+                    num=0;
+                }
+                oImg.src=aImg[num];
+//                oText.innerHTML=aText[num];//图片信息变化，与数组关联
+//                oSpan.innerHTML=(num+1)+"/"+aImg.length;//数量变化，与数组关联
+                //alert(num);
+
+            }
+//            function back(){
+//                num=num-1;
+//                //进行判断，如果图片小于第一张时,图片返回最后一张
+//                if(num<0){
+//                    num=aImg.length-1;
+//                }
+//                oImg.src=aImg[num];
+//                oText.innerHTML=aText[num];//图片信息变化，与数组关联
+//                oSpan.innerHTML=(num+1)+"/"+aImg.length;//数量变化，与数组关联
+//            }
+//            function next1(){
+//                num=num+1; //每次加一
+//                //进行判断，如果num大于最后一张时,弹出警告并把图片定在最后一张
+//                //// 1 2 3 4
+//                if(num>aImg.length-1){
+//
+//                    num=aImg.length-1;
+//                    alert("最后一张了");
+//                }
+//                oImg.src=aImg[num];
+//                oText.innerHTML=aText[num];
+//                oSpan.innerHTML=num+1+"/"+aImg.length;
+//                //alert(num);
+//
+//            }
+//            function back1(){
+//                num=num-1;
+//                //进行判断，如果图片小于第一张时，弹出警告并把图片定在第一张
+//                if(num<0){
+//                    num=0;
+//                    alert("已经是第一张了");
+//                }
+//                oImg.src=aImg[num];
+//                oText.innerHTML=aText[num];
+//                oSpan.innerHTML=num+1+"/"+aImg.length;
+//            }
+
+            oNext.onclick=next;
+//            oBack.onclick=back;
+//            oLoop.onclick=function(){
+//                oText1.innerHTML="图片可以从第一张到最后一张循环切换";
+//                oNext.onclick=next;
+//                oBack.onclick=back;
+//            }
+//            Oorder.onclick=function(){
+//                oText1.innerHTML="图片只能从第一张到最后一张顺序切换";
+//                oNext.onclick=next1;
+//                oBack.onclick=back1;
+//
+//            }
+
+
+        }
+
+    </script>
+</head>
+<body>
+<!--<input id="loop" type="button" name="" value="循环切换"/>-->
+<!--<input id="order"type="button" name="" value="顺序切换"/>-->
+<!--<p id="text1">图片可以从第一张到最后一张循环切换</p>-->
+<div>
+    <!--<input id="back" type="button" name="" value="上一张"/>-->
+    <input id="next" type="button" name="" value="下一张"/>
+    <img id="img" src="../img/test1.jpg"/>
+    <!--<span id="span">1/4</span>-->
+    <!--<p id="text">图片1</p>-->
+</div>
+<script>
+//    $(function () {
+//        var aImg=["../img/test1.jpg","../img/test2.gif","../img/test3.jpg","../img/test4.jpg"];
+//        var num = 0;
+//        $('#next').onclick = function () {
+//            num += 1;
+//            if(num > aImg.length-1){
+//                num = 0;
+//            }
+//            oImag.src = aImg[num];
+//        }
+//    })
+</script>
+</body>
+</html>

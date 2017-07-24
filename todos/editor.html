@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>A Simple Demo</title>
+    <link rel="stylesheet" href="../backbone/editor.css">
+    <link rel="stylesheet" type="text/css" href="../bootstrap/css/bootstrap.css">
+    <link rel="stylesheet" type="text/css" href="../simditor/styles/simditor.css" />
+</head>
+<body>
+<header>
+    <h1>A Simple Demo</h1>
+    <!--<div id="divtip">点击</div>-->
+</header>
+
+<section>
+    <div id="left" class="col-sm-3">
+            <button id="imgBtn" type="button" class="btn btn-primary btn-md btn-block">图片</button>
+        <ul>
+            <li>请输入文本内容：<input type="text" name="Name" id="Name" /> </li>
+        </ul>
+        <button id="txtBtn" type="button" class="btn btn-primary btn-md btn-block">添加文本</button>
+    </div>
+
+    <div id="middle" class="col-sm-5">
+        <div class="middleHeader">
+            <button id="saveBtn" type="button" class="btn btn-primary">保存</button>
+            <button id="previewBtn" type="button" class="btn btn-primary">预览</button>
+        </div>
+        <div id="middleSection">
+            <ul id="text-list">
+                <script type="text/template" id="item-template">
+                    <span class="show1">
+                        <div class="disp"><%=Name%></div>
+                        <span class="edit">
+                             <input type="text" name="Name" id="Name">
+                        </span>
+                    </span>
+                    <span><a href="#" style="margin-left: 100px">删除</a></span>
+                </script>
+                <img  id="img" src="../img/test3.jpg" class="items" style="width: 150px;height: 100px;">
+            </ul>
+        </div>
+    </div>
+
+    <div id="right" class="col-sm-4">
+        <div class="rightHeader">
+            <label for="next">图片切换</label>
+            <button id="next" type="button" class="btn btn-primary">下一张</button>
+            <button id="clearBtn" type="button" class="btn btn-primary">清空</button>
+        </div>
+        <div class="panel panel-default">
+            <div class="panel-heading">
+                <div class="btn-group">
+                    <button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                        Edit<span class="caret"></span>
+                    </button>
+                </div>
+            </div>
+            <div class="panel-body">
+                <textarea id="editor" placeholder="Balabala" autofocus></textarea>
+            </div>
+        </div>
+    </div>
+</section>
+
+<footer>
+
+</footer>
+
+
+<script src="../backbone/json2.js"></script>
+<script src="../backbone/jquery-3.2.1.min.js"></script>
+<!--<script src="../backbone/jquery.js"></script>-->
+
+<script type="text/javascript" src="../simditor/scripts/module.js"></script>
+<script type="text/javascript" src="../simditor/scripts/hotkeys.js"></script>
+<script type="text/javascript" src="../simditor/scripts/uploader.js"></script>
+<script type="text/javascript" src="../simditor/scripts/simditor.js"></script>
+
+
+<script src="../bootstrap/js/bootstrap.js"></script>
+<script src="../backbone/underscore.js"></script>
+<script src="../backbone/bootbox.js"></script>
+<script src="../backbone/backbone.js"></script>
+<script src="../backbone/store.js"></script>
+<script src="../backbone/backbone.localStorage.js"></script>
+<script src="../backbone/editor.js"></script>
+<script src="../backbone/editor.js"></script>
+
+
+<script>
+    var editor = new Simditor({
+        textarea: $('#editor')
+        //optional options
+    });
+</script>
+
+
+</body>
+</html>

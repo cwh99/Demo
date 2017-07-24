@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>localStorage</title>
+</head>
+<body>
+<div id="result"></div>
+<script>
+//    if (typeof(Storage) !== 'undefined'){
+//        localStorage.setItem('lastname','chenyy')
+//        document.getElementById('result').innerHTML =
+//            localStorage.getItem('lastname')
+//    }else{
+//        document.getElementById('result').innerHTML = 'no surport!'
+//    }
+
+if (localStorage.pagecount)
+{
+    localStorage.pagecount=Number(localStorage.pagecount) +1;
+}
+else
+{
+    localStorage.pagecount=1;
+}
+document.write("result "+ localStorage.pagecount + " time(s).");
+</script>
+</body>
+</html>
