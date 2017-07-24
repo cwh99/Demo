@@ -154,7 +154,7 @@ $(function(){
         events: {
             "keypress #new-todo":  "createOnEnter",
             "click #clear-completed": "clearCompleted",
-            "click #toggle-all": "toggleAllComplete"
+            // "click #toggle-all": "toggleAllComplete"
         },
 
         // At initialization we bind to the relevant events on the `Todos`
@@ -178,19 +178,19 @@ $(function(){
         // Re-rendering the App just means refreshing the statistics -- the rest
         // of the app doesn't change.
         render: function() {
-            var done = Todos.done().length;
-            var remaining = Todos.remaining().length;
-
+            // var done = Todos.done().length;
+            // var remaining = Todos.remaining().length;
+            //
             if (Todos.length) {
                 this.main.show();
-                this.footer.show();
-                this.footer.html(this.statsTemplate({done: done, remaining: remaining}));
+                // this.footer.show();
+                // this.footer.html(this.statsTemplate({done: done, remaining: remaining}));
             } else {
                 this.main.hide();
-                this.footer.hide();
+                // this.footer.hide();
             }
 
-            this.allCheckbox.checked = !remaining;
+            // this.allCheckbox.checked = !remaining;
         },
 
         // Add a single todo item to the list by creating a view for it, and
@@ -221,10 +221,10 @@ $(function(){
             return false;
         },
 
-        toggleAllComplete: function () {
-            var done = this.allCheckbox.checked;
-            Todos.each(function (todo) { todo.save({'done': done}); });
-        }
+        // toggleAllComplete: function () {
+        //     var done = this.allCheckbox.checked;
+        //     Todos.each(function (todo) { todo.save({'done': done}); });
+        // }
 
     });
 

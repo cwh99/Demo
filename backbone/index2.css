@@ -1,0 +1,213 @@
+body{
+    background-color: lightgray;
+}
+section{
+    margin-top: 50px;
+}
+
+header h1{
+    /*background-color: lightgray;*/
+    text-align: center;
+    margin: 0;
+    padding: 0;
+}
+
+
+#middle{
+
+    border-right:1px solid white;
+}
+#middle button{
+    width: 200px;
+    margin: 5px 65px 20px 65px;
+}
+
+#right .panel{
+    margin-top: 30px;
+}
+
+#text-list li{
+    list-style: none;
+    /*margin:20px 0 20px 50px;*/
+    /*border: 2px solid #b3d4fd;*/
+
+}
+#text-list li .listbor{
+    border: 1px solid red;
+}
+ul,li{
+    list-style: none;
+}
+#left ul{
+    margin: 50px 0 30px -30px;
+}
+.show1 .edit,.editing .disp
+{
+    display:none;
+}
+.show1 .disp,.editing .edit
+{
+    display:inline-block;
+}
+.li_c
+{
+    float:left;
+    padding:5px;
+    margin: 30px;
+    /*border: 1px solid red;*/
+    /*width: 400px;*/
+}
+.input
+{
+    clear:both;
+    padding-top:10px;
+    padding-left:3px;
+    width:457px
+}
+#item-template span{
+    display: inline-block;
+}
+.border{
+    border: 1px solid red;
+}
+#imgBtn{
+    width: 180px;
+    margin-left: 60px;
+}
+.rightHeader button{
+    margin: 20px 0 0 100px;
+}
+
+
+h1 {
+    font-size: 36px;
+    font-weight: bold;
+    text-align: center;
+    padding: 0 0 10px 0;
+}
+
+#left input[type="text"] {
+    margin-top: 10px;
+    margin-left: 60px;
+    width: 180px;
+    font-size: 16px;
+    font-family: inherit;
+    line-height: 1.4em;
+    border: 0;
+    outline: none;
+    padding: 6px;
+    border: 1px solid #999999;
+    -webkit-box-shadow: rgba(0, 0, 0, 0.2) 0 1px 2px 0 inset;
+    -moz-box-shadow: rgba(0, 0, 0, 0.2) 0 1px 2px 0 inset;
+    -ms-box-shadow: rgba(0, 0, 0, 0.2) 0 1px 2px 0 inset;
+    -o-box-shadow: rgba(0, 0, 0, 0.2) 0 1px 2px 0 inset;
+    box-shadow: rgba(0, 0, 0, 0.2) 0 1px 2px 0 inset;
+}
+
+#left input::-webkit-input-placeholder {
+    font-style: italic;
+}
+
+
+#main {
+    display: none;
+}
+
+#text-list {
+    margin: 10px 0;
+    padding: 0;
+    list-style: none;
+}
+
+#text-list li {
+    width: 450px;
+    padding: 18px 20px 18px 0;
+    position: relative;
+    font-size: 24px;
+    border-bottom: 1px solid #cccccc;
+}
+
+#text-list li:last-child {
+    border-bottom: none;
+}
+
+#text-list li.done label {
+    color: #777777;
+    text-decoration: line-through;
+}
+
+#text-list .destroy {
+    position: absolute;
+    right: 5px;
+    top: 20px;
+    display: none;
+    cursor: pointer;
+    width: 20px;
+    height: 20px;
+    background: url(../img/test1.jpg) no-repeat;
+}
+
+#text-list li:hover .destroy {
+    display: block;
+}
+
+#text-list .destroy:hover {
+    background-position: 0 -20px;
+}
+
+#text-list li.editing {
+    border-bottom: none;
+    margin-top: -1px;
+    padding: 0;
+}
+
+#text-list li.editing:last-child {
+    margin-bottom: -1px;
+}
+
+#text-list li.editing .edit {
+    display: block;
+    width: 444px;
+    padding: 13px 15px 14px 20px;
+    margin: 0;
+}
+
+#text-list li.editing .view {
+    display: none;
+}
+
+#text-list li .view label {
+    word-break: break-word;
+}
+
+#text-list li .edit {
+    display: none;
+}
+#text-list .checked{
+    border: 1px solid red;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

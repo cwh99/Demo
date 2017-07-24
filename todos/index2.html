@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>A Demo</title>
+    <link rel="stylesheet" href="../backbone/index2.css">
+    <link rel="stylesheet" type="text/css" href="../bootstrap/css/bootstrap.css">
+    <link rel="stylesheet" type="text/css" href="../simditor/styles/simditor.css" />
+</head>
+<body>
+<header>
+    <h1></h1>
+</header>
+
+<section>
+    <div id="left" class="col-sm-3">
+        <button id="imgBtn" type="button" class="btn btn-primary btn-md btn-block">图片</button>
+        <ul>
+            <input id="new-text" type="text" placeholder="please input somthing">
+        </ul>
+        <!--<button id="txtBtn" type="button" class="btn btn-primary btn-md btn-block">添加文本</button>-->
+    </div>
+
+
+    <div class="col-sm-5">
+        <div id="main">
+            <ul id="text-list">
+
+            </ul>
+        </div>
+    </div>
+
+    <div id="right" class="col-sm-4">
+        <div class="rightHeader">
+            <!--<label for="next">图片切换</label>-->
+            <button id="clearBtn" type="button" class="btn btn-primary">清空</button><br>
+            <button id="previewBtn" type="button" class="btn btn-primary">预览</button>
+        </div>
+
+    </div>
+</section>
+
+<footer>
+
+</footer>
+
+<script src="../backbone/require.js" defer async="true" data-main="../todos/index2.js"></script>
+
+<script type="text/template" id="item-template">
+    <!--<div>-->
+        <div class="view">
+            <input class="toggle" type="checkbox" <%= done ? 'checked="checked"' : '' %> />
+            <label><%- title %></label>
+            <a class="destroy"></a>
+        </div>
+        <input class="edit" type="text" value="<%- title %>" />
+    <!--</div>-->
+</script>
+
+<script type="text/template" id="stats-template">
+    <% if (done) { %>
+    <a id="clear-completed">Clear <%= done %> completed <%= done == 1 ? 'item' : 'items' %></a>
+    <% } %>
+    <div class="todo-count"><b><%= remaining %></b> <%= remaining == 1 ? 'item' : 'items' %> left</div>
+</script>
+</body>
+</html>
